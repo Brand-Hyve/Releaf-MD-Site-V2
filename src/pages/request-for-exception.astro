@@ -4,247 +4,179 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout 
   title="Florida Medical Marijuana Request for Exception (RFE) Guide | Releaf MD" 
-  description="Learn how a Request for Exception (RFE) works in Florida, the standard daily dosage limits, and the step-by-step process to request higher limits."
+  description="Learn how a Request for Exception (RFE) works in Florida, standard daily dosage limits, and the step-by-step process to request higher limits."
 >
   <!-- Hero Section -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-brand-light/70 via-brand-light/30 to-white py-20 lg:py-28">
-    <div class="absolute inset-y-0 right-0 -z-10 w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="h-full w-full opacity-10 bg-[radial-gradient(#16a34a_1.5px,transparent_1.5px)] [background-size:16px_16px]"></div>
-    </div>
-    
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-brand-dark bg-green-100 rounded-full mb-6 uppercase tracking-wider">
-        Florida OMMU Guidance
+  <section class="bg-brand-mint py-16 lg:py-24 border-b border-brand-primary/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-primary/10 text-brand-primary rounded-full text-xs font-bold uppercase tracking-wider">
+        📋 State Registry Support
       </span>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-6 uppercase tracking-tight leading-tight">
-        Florida Medical Marijuana <span class="text-brand-primary">Request for Exception (RFE)</span>
-      </h1>
-      <p class="text-xl text-slate-600 max-w-2xl mx-auto font-medium">
-        If standard state dosage limits are not meeting your medical needs, your physician can request an increase through the state registry.
+      <h1 class="text-4xl sm:text-5xl font-serif-headline text-brand-dark leading-tight uppercase">Request for Exception (RFE) Guide</h1>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        If standard Florida medical marijuana dosage limits are not meeting your medical needs, we can petition the state for a limit increase.
       </p>
     </div>
   </section>
 
-  <!-- Overview Section -->
-  <section class="py-16 bg-white border-t border-slate-100">
+  <!-- Content Section -->
+  <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="prose prose-lg prose-slate max-w-none">
-        <h2 class="text-2xl sm:text-3xl font-black uppercase text-slate-900 mb-6">What is a Request for Exception (RFE)?</h2>
-        <p class="text-lg text-slate-600 leading-relaxed mb-6">
-          In Florida, the Office of Medical Marijuana Use (OMMU) enforces daily and 35/70-day supply limits on all medical cannabis routes of administration. A <strong>Request for Exception (RFE)</strong> is a clinical petition filed by a qualified physician on your behalf to authorize dosages that exceed these default limits.
+      <div class="bg-white border border-brand-primary/10 rounded-3xl p-8 sm:p-12 shadow-whisper prose prose-slate max-w-none space-y-8">
+        
+        <h2 class="text-2xl font-serif-headline text-brand-dark uppercase">What is a Request for Exception (RFE)?</h2>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          The Florida Office of Medical Marijuana Use (OMMU) enforces standard daily dose and 35/70-day supply limits on all medical cannabis routes of administration. A <strong>Request for Exception (RFE)</strong> is an official clinical petition filed by a qualified physician on your behalf to authorize dosages that exceed these default limits.
         </p>
-        <p class="text-lg text-slate-600 leading-relaxed mb-8">
-          The RFE process ensures that patients with severe conditions, high tolerance, or unique clinical requirements can legally obtain the necessary amount of medical marijuana for their treatment.
+        <p class="text-slate-600 text-sm leading-relaxed">
+          This process is designed for patients who, due to severe conditions, high tolerance, or unique clinical requirements, need higher amounts of THC or smokable flower to manage their qualifying condition.
         </p>
-      </div>
 
-      <!-- Quick Stats / Highlights -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 my-12">
-        <div class="p-6 bg-slate-50 border border-slate-100 rounded-xl hover:shadow-md transition-shadow">
-          <div class="text-3xl font-black text-brand-primary mb-2">14 Days</div>
-          <h3 class="font-bold text-slate-900 mb-1">State Review Time</h3>
-          <p class="text-sm text-slate-500">The state has up to 14 calendar days to review. Requests are auto-approved if no decision is made in this window.</p>
-        </div>
-        <div class="p-6 bg-slate-50 border border-slate-100 rounded-xl hover:shadow-md transition-shadow">
-          <div class="text-3xl font-black text-brand-primary mb-2">210 Days</div>
-          <h3 class="font-bold text-slate-900 mb-1">Validity Period</h3>
-          <p class="text-sm text-slate-500">An RFE is tied directly to your active certification cycle and must be renewed every 7 months.</p>
-        </div>
-        <div class="p-6 bg-slate-50 border border-slate-100 rounded-xl hover:shadow-md transition-shadow">
-          <div class="text-3xl font-black text-brand-primary mb-2">Clinical</div>
-          <h3 class="font-bold text-slate-900 mb-1">Necessity Based</h3>
-          <p class="text-sm text-slate-500">Requires documented history and clinical rationale demonstrating standard limits are insufficient.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Florida Limits Table Section -->
-  <section class="py-16 bg-slate-50 border-y border-slate-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-black uppercase text-slate-900 mb-4">Standard Florida Dosage & Supply Limits</h2>
-        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-          Here are the default daily dose and supply limits enforced in the Florida Medical Marijuana Use Registry.
-        </p>
-      </div>
-
-      <div class="overflow-hidden bg-white border border-slate-200 rounded-xl shadow-sm">
-        <div class="overflow-x-auto">
-          <table class="min-w-full divide-y divide-slate-200 text-left">
-            <thead class="bg-slate-50">
-              <tr>
-                <th scope="col" class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Route of Administration</th>
-                <th scope="col" class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Daily THC / Amount Limit</th>
-                <th scope="col" class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Standard Supply Limit</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 text-slate-600">
-              <tr class="hover:bg-slate-50/50 transition-colors">
-                <td class="px-6 py-4 font-bold text-slate-900">Smokable Flower</td>
-                <td class="px-6 py-4">2.025 Grams / Day</td>
-                <td class="px-6 py-4 font-medium text-brand-dark">2.5 Ounces (per 35-day period)</td>
-              </tr>
-              <tr class="hover:bg-slate-50/50 transition-colors">
-                <td class="px-6 py-4 font-bold text-slate-900">Inhalation (Vapes/Concentrates)</td>
-                <td class="px-6 py-4">350 mg THC / Day</td>
-                <td class="px-6 py-4 font-medium text-brand-dark">24,500 mg THC (per 70-day period)</td>
-              </tr>
-              <tr class="hover:bg-slate-50/50 transition-colors">
-                <td class="px-6 py-4 font-bold text-slate-900">Edibles</td>
-                <td class="px-6 py-4">60 mg THC / Day</td>
-                <td class="px-6 py-4 font-medium text-brand-dark">4,200 mg THC (per 70-day period)</td>
-              </tr>
-              <tr class="hover:bg-slate-50/50 transition-colors">
-                <td class="px-6 py-4 font-bold text-slate-900">Oral (Capsules/Tinctures)</td>
-                <td class="px-6 py-4">200 mg THC / Day</td>
-                <td class="px-6 py-4 font-medium text-brand-dark">14,000 mg THC (per 70-day period)</td>
-              </tr>
-              <tr class="hover:bg-slate-50/50 transition-colors">
-                <td class="px-6 py-4 font-bold text-slate-900">Sublingual</td>
-                <td class="px-6 py-4">190 mg THC / Day</td>
-                <td class="px-6 py-4 font-medium text-brand-dark">13,300 mg THC (per 70-day period)</td>
-              </tr>
-              <tr class="hover:bg-slate-50/50 transition-colors">
-                <td class="px-6 py-4 font-bold text-slate-900">Topical</td>
-                <td class="px-6 py-4">150 mg THC / Day</td>
-                <td class="px-6 py-4 font-medium text-brand-dark">10,500 mg THC (per 70-day period)</td>
-              </tr>
-              <tr class="hover:bg-slate-50/50 transition-colors">
-                <td class="px-6 py-4 font-bold text-slate-900">Suppository</td>
-                <td class="px-6 py-4">195 mg THC / Day</td>
-                <td class="px-6 py-4 font-medium text-brand-dark">13,650 mg THC (per 70-day period)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 text-xs text-slate-500">
-          <p><strong>Note:</strong> Non-smokable routes have a combined aggregate limit of 24,500 mg THC per 70-day cycle. Limits operate on a rolling registry cycle.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Step-by-Step Process -->
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-black uppercase text-slate-900 mb-4">The RFE Exception Process</h2>
-        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-          Here is how to request and obtain an exception limit increase in the state of Florida.
-        </p>
-      </div>
-
-      <div class="relative border-l border-slate-200 ml-4 md:ml-6 space-y-12">
-        <!-- Step 1 -->
-        <div class="relative pl-8 md:pl-10">
-          <div class="absolute -left-3.5 top-0 flex h-7 w-7 items-center justify-center rounded-full bg-brand-primary text-white text-xs font-bold ring-4 ring-white">
-            1
+        <!-- Informational Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+          <div class="bg-brand-mint/40 p-6 rounded-2xl border border-brand-primary/10 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif-headline font-bold text-brand-dark text-base mb-2">14-Day Review</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                The state OMMU reviews RFE applications within 14 calendar days. If no decision is rendered in this period, the request is automatically approved.
+              </p>
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2 uppercase">Physician Evaluation</h3>
-          <p class="text-slate-600 leading-relaxed">
-            During your certification or renewal evaluation with Dr. Kelly Ennix King, discuss your treatment goals. If your medical history and clinical needs demonstrate that standard limits are insufficient, the doctor will determine if an exception is medically necessary.
-          </p>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="relative pl-8 md:pl-10">
-          <div class="absolute -left-3.5 top-0 flex h-7 w-7 items-center justify-center rounded-full bg-brand-primary text-white text-xs font-bold ring-4 ring-white">
-            2
+          
+          <div class="bg-brand-mint/40 p-6 rounded-2xl border border-brand-primary/10 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif-headline font-bold text-brand-dark text-base mb-2">210-Day Validity</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                Approved RFEs are tied directly to your active certification cycle and must be renewed every 7 months when your physician orders are updated.
+              </p>
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2 uppercase">Clinical Documentation</h3>
-          <p class="text-slate-600 leading-relaxed">
-            We assemble and file the necessary clinical justifications. The doctor must provide detailed medical notes and documentation detailing why standard state limits are inadequate to address your qualifying condition.
-          </p>
-        </div>
 
-        <!-- Step-by-Step Step 3 -->
-        <div class="relative pl-8 md:pl-10">
-          <div class="absolute -left-3.5 top-0 flex h-7 w-7 items-center justify-center rounded-full bg-brand-primary text-white text-xs font-bold ring-4 ring-white">
-            3
+          <div class="bg-brand-mint/40 p-6 rounded-2xl border border-brand-primary/10 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif-headline font-bold text-brand-dark text-base mb-2">Clinical Rationale</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                Requires clinical history, diagnostic records, and a detailed physician justification explaining why standard state limits are insufficient.
+              </p>
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2 uppercase">State Submission & Registry Review</h3>
-          <p class="text-slate-600 leading-relaxed">
-            The RFE is submitted electronically to the Office of Medical Marijuana Use (OMMU) through the registry portal. The state has 14 calendar days to review, request additional evidence, or deny the application. If they do not issue a decision in 14 days, it is automatically approved.
-          </p>
         </div>
 
-        <!-- Step 4 -->
-        <div class="relative pl-8 md:pl-10">
-          <div class="absolute -left-3.5 top-0 flex h-7 w-7 items-center justify-center rounded-full bg-brand-primary text-white text-xs font-bold ring-4 ring-white">
-            4
-          </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2 uppercase">Registry Activation</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Once approved, the increased limit updates automatically in your Medical Marijuana Use Registry (MMUR) profile. You can log into the state registry at any time to monitor your new active dosage balances.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="py-20 bg-slate-50 border-t border-slate-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-black uppercase text-slate-900 mb-4">RFE Frequently Asked Questions</h2>
-        <p class="text-lg text-slate-600">
-          Important details to know about requesting a dosage limit increase.
+        <h2 class="text-2xl font-serif-headline text-brand-dark uppercase">Standard Florida Dosage & Supply Limits</h2>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          The state enforces default limits on the maximum amount of THC and smokable flower you can purchase in a rolling cycle:
         </p>
-      </div>
 
-      <div class="space-y-8">
-        <div class="bg-white p-6 rounded-xl border border-slate-200">
-          <h3 class="text-lg font-bold text-slate-900 mb-2">How long is an approved RFE valid?</h3>
-          <p class="text-slate-600">
-            An approved RFE is valid only for the duration of your current 210-day certification cycle. Every time you complete a 30-week renewal visit, a new RFE must be submitted and approved to maintain your increased limits.
+        <!-- Limits Table -->
+        <div class="overflow-hidden border border-brand-primary/10 rounded-2xl shadow-whisper my-6">
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-slate-200 text-left text-xs">
+              <thead class="bg-brand-mint/30">
+                <tr>
+                  <th scope="col" class="px-5 py-3 font-bold text-brand-dark uppercase tracking-wider">Route of Administration</th>
+                  <th scope="col" class="px-5 py-3 font-bold text-brand-dark uppercase tracking-wider">Daily Limit</th>
+                  <th scope="col" class="px-5 py-3 font-bold text-brand-dark uppercase tracking-wider">Standard Supply Limit</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-slate-600">
+                <tr class="hover:bg-brand-mint/10 transition-colors">
+                  <td class="px-5 py-3 font-bold text-brand-dark">Smokable Flower</td>
+                  <td class="px-5 py-3">2.025 Grams / Day</td>
+                  <td class="px-5 py-3 font-medium text-brand-primary">2.5 Ounces (per 35-day period)</td>
+                </tr>
+                <tr class="hover:bg-brand-mint/10 transition-colors">
+                  <td class="px-5 py-3 font-bold text-brand-dark">Inhalation (Vapes/Concentrates)</td>
+                  <td class="px-5 py-3">350 mg THC / Day</td>
+                  <td class="px-5 py-3 font-medium text-brand-primary">24,500 mg THC (per 70-day period)</td>
+                </tr>
+                <tr class="hover:bg-brand-mint/10 transition-colors">
+                  <td class="px-5 py-3 font-bold text-brand-dark">Edibles</td>
+                  <td class="px-5 py-3">60 mg THC / Day</td>
+                  <td class="px-5 py-3 font-medium text-brand-primary">4,200 mg THC (per 70-day period)</td>
+                </tr>
+                <tr class="hover:bg-brand-mint/10 transition-colors">
+                  <td class="px-5 py-3 font-bold text-brand-dark">Oral (Capsules/Tinctures)</td>
+                  <td class="px-5 py-3">200 mg THC / Day</td>
+                  <td class="px-5 py-3 font-medium text-brand-primary">14,000 mg THC (per 70-day period)</td>
+                </tr>
+                <tr class="hover:bg-brand-mint/10 transition-colors">
+                  <td class="px-5 py-3 font-bold text-brand-dark">Sublingual</td>
+                  <td class="px-5 py-3">190 mg THC / Day</td>
+                  <td class="px-5 py-3 font-medium text-brand-primary">13,300 mg THC (per 70-day period)</td>
+                </tr>
+                <tr class="hover:bg-brand-mint/10 transition-colors">
+                  <td class="px-5 py-3 font-bold text-brand-dark">Topical</td>
+                  <td class="px-5 py-3">150 mg THC / Day</td>
+                  <td class="px-5 py-3 font-medium text-brand-primary">10,500 mg THC (per 70-day period)</td>
+                </tr>
+                <tr class="hover:bg-brand-mint/10 transition-colors">
+                  <td class="px-5 py-3 font-bold text-brand-dark">Suppository</td>
+                  <td class="px-5 py-3">195 mg THC / Day</td>
+                  <td class="px-5 py-3 font-medium text-brand-primary">13,650 mg THC (per 70-day period)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="px-5 py-3 bg-brand-mint/10 border-t border-brand-primary/10 text-[10px] text-slate-500">
+            <p><strong>Registry Tracking:</strong> Non-smokable routes have a combined aggregate limit of 24,500 mg THC per 70-day cycle. Limits operate on a rolling registry cycle.</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-serif-headline text-brand-dark uppercase">How the Exception Request Process Works</h2>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Requesting an exemption is a clinical process integrated directly into your evaluation with Releaf MD:
+        </p>
+
+        <ol class="list-decimal pl-5 space-y-4 text-slate-600 text-sm">
+          <li>
+            <strong>Clinical Consultation:</strong> During your consultation with Dr. Kelly Ennix King, discuss your treatment and dosage patterns. If you require higher amounts to manage your symptoms, she will evaluate the medical necessity of an exception.
+          </li>
+          <li>
+            <strong>Evidence Assembly:</strong> Our staff will gather your clinical history, medical records, and diagnostic logs to document why standard limits are insufficient.
+          </li>
+          <li>
+            <strong>Registry Filing:</strong> Dr. Kelly submits the RFE petition electronically through the OMMU Medical Marijuana Use Registry (MMUR).
+          </li>
+          <li>
+            <strong>Registry Update:</strong> Once approved, the state registry instantly adjusts your profile, permitting dispensaries to fill your higher order quantities immediately.
+          </li>
+        </ol>
+
+        <!-- Important Warning Banner -->
+        <div class="bg-brand-dark text-white p-8 rounded-2xl border-l-4 border-brand-accent my-10 space-y-4">
+          <h3 class="text-lg font-serif-headline text-brand-mint uppercase">Changes and Physician Transfers</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Please note that approved exception requests do not transfer between clinics automatically. If you switch to another certifying physician, your new doctor must evaluate and file a new RFE to re-authorize your higher limit.
           </p>
         </div>
 
-        <div class="bg-white p-6 rounded-xl border border-slate-200">
-          <h3 class="text-lg font-bold text-slate-900 mb-2">What happens to my limits while the RFE is pending?</h3>
-          <p class="text-slate-600">
-            While the state is reviewing your request, you remain restricted to Florida's standard daily dosage and 70-day (or 35-day for smokable flower) limit categories.
-          </p>
+        <h2 class="text-2xl font-serif-headline text-brand-dark uppercase">Frequently Asked Questions</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-serif-headline font-bold text-brand-dark text-base">Is an approved exception permanent?</h3>
+            <p class="text-slate-600 text-xs leading-relaxed mt-1">
+              No. RFEs are valid only for the duration of your active 210-day certification cycle. At each 30-week renewal visit, your certifying doctor must submit a new RFE to keep the exemption active.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-serif-headline font-bold text-brand-dark text-base">What are the limits while the state reviews my RFE?</h3>
+            <p class="text-slate-600 text-xs leading-relaxed mt-1">
+              While the RFE is pending with the Office of Medical Marijuana Use (up to 14 days), your purchasing limits remain capped at the default state quantities.
+            </p>
+          </div>
         </div>
 
-        <div class="bg-white p-6 rounded-xl border border-slate-200">
-          <h3 class="text-lg font-bold text-slate-900 mb-2">Can switching doctors affect my RFE?</h3>
-          <p class="text-slate-600">
-            Yes. RFEs are linked to the certifying physician who filed them. If you transfer your care to a new clinic or physician, you will need to undergo a new clinical evaluation, and your new doctor must submit a fresh RFE.
+        <!-- Footer Actions (Consistent CTA Section) -->
+        <div class="border-t border-slate-100 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p class="text-xs text-slate-500 italic">
+            Learn more in our <a href="/florida-medical-marijuana-card-guide" class="text-brand-primary font-bold hover:underline">Complete Florida Card Guide</a>.
           </p>
+          <a target="_blank" rel="noopener noreferrer" href="https://live.vcita.com/site/DrKellyKing/online-scheduling" class="bg-brand-accent hover:bg-brand-primary text-white font-bold px-6 py-3 rounded-full text-xs uppercase transition-colors shadow-md active-press">
+            Request RFE Consultation
+          </a>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Clear CTA Section (Request RFE Consultation) -->
-  <section class="relative overflow-hidden bg-slate-900 text-white py-20 lg:py-28 text-center">
-    <div class="absolute inset-0 -z-10 opacity-10 bg-[radial-gradient(#16a34a_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
-    
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-bold text-brand-primary bg-emerald-950 border border-emerald-800 rounded-full mb-6 uppercase tracking-wider">
-        Connect with Releaf MD
-      </span>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 uppercase tracking-tight leading-tight">
-        Do you need higher limits for your treatment?
-      </h2>
-      <p class="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-        Speak with Dr. Kelly Ennix King to evaluate your clinical needs and begin your Florida Request for Exception (RFE) application.
-      </p>
-      
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-md mx-auto">
-        <a href="/#lead-form" class="w-full bg-brand-primary hover:bg-brand-dark text-white px-8 py-4 rounded-md font-bold text-lg transition-all transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-primary/20 text-center uppercase tracking-wide">
-          Request RFE Consultation
-        </a>
-        <a href="tel:8136513492" class="w-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 px-8 py-4 rounded-md font-bold text-lg transition-colors text-center uppercase tracking-wide">
-          Call 813-651-3492
-        </a>
       </div>
-      
-      <p class="mt-6 text-sm text-slate-500 italic">
-        Evaluations are completed in a private, supportive clinical setting.
-      </p>
     </div>
   </section>
 </Layout>
