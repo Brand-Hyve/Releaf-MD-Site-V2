@@ -131,14 +131,19 @@ const { title, description } = Astro.props;
 					<a href="/pediatric-cbd" class="text-sm text-slate-700 hover:text-brand-primary py-1">Pediatric CBD</a>
 				</div>
 				<div class="h-px bg-slate-100 my-2"></div>
-				<div class="font-bold text-slate-400 text-xs tracking-wider uppercase mb-1">Locations & Resources</div>
+				<div class="font-bold text-slate-400 text-xs tracking-wider uppercase mb-1">Locations</div>
 				<div class="grid grid-cols-2 gap-2 pl-2">
 					<a href="/locations/brandon" class="text-sm text-slate-700 hover:text-brand-primary py-1">Brandon, FL</a>
 					<a href="/locations/riverview-valrico" class="text-sm text-slate-700 hover:text-brand-primary py-1">Riverview/Valrico</a>
+				</div>
+				<div class="h-px bg-slate-100 my-2"></div>
+				<div class="font-bold text-slate-400 text-xs tracking-wider uppercase mb-1">Resources</div>
+				<div class="grid grid-cols-2 gap-2 pl-2">
 					<a href="/costs" class="text-sm text-slate-700 hover:text-brand-primary py-1">Pricing & Costs</a>
+					<a href="/request-for-exception" class="text-sm text-slate-700 hover:text-brand-primary py-1">Request for Exception (RFE)</a>
 					<a href="/seniors" class="text-sm text-slate-700 hover:text-brand-primary py-1">Seniors Guide</a>
 					<a href="/physician-referral" class="text-sm text-slate-700 hover:text-brand-primary py-1">Referrals</a>
-					<a href="/schedule-3-changes" class="text-sm text-slate-700 hover:text-brand-primary py-1">Schedule 3</a>
+					<a href="/schedule-3-changes" class="text-sm text-slate-700 hover:text-brand-primary py-1">Schedule 3 Info</a>
 					<a href="/#faq" class="text-sm text-slate-700 hover:text-brand-primary py-1">FAQ</a>
 				</div>
 				<div class="h-px bg-slate-100 my-2"></div>
@@ -152,12 +157,14 @@ const { title, description } = Astro.props;
 		</header>
 
 		<script data-astro-rerun>
-			const btn = document.getElementById('mobile-menu-btn');
-			const menu = document.getElementById('mobile-menu');
-			if (btn && menu) {
-				btn.addEventListener('click', () => {
-					menu.classList.toggle('hidden');
-				});
+			{
+				const btn = document.getElementById('mobile-menu-btn');
+				const menu = document.getElementById('mobile-menu');
+				if (btn && menu) {
+					btn.addEventListener('click', () => {
+						menu.classList.toggle('hidden');
+					});
+				}
 			}
 		</script>
 

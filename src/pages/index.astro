@@ -417,38 +417,73 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <script data-astro-rerun>
-    // FAQ Accordion Toggle with Smooth Transitions
-    const toggles = document.querySelectorAll('.faq-toggle');
-    toggles.forEach(toggle => {
-      toggle.addEventListener('click', () => {
-        const id = toggle.getAttribute('data-faq');
-        const answer = document.getElementById(id);
-        const icon = toggle.querySelector('.faq-icon');
-        const isOpen = answer.classList.contains('is-open');
+    {
+      // FAQ Accordion Toggle with Smooth Transitions
+      const toggles = document.querySelectorAll('.faq-toggle');
+      toggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const id = toggle.getAttribute('data-faq');
+          const answer = document.getElementById(id);
+          const icon = toggle.querySelector('.faq-icon');
+          const isOpen = answer.classList.contains('is-open');
 
-        // Close all answers
-        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('is-open'));
-        document.querySelectorAll('.faq-icon').forEach(i => i.textContent = '＋');
+          // Close all answers
+          document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('is-open'));
+          document.querySelectorAll('.faq-icon').forEach(i => i.textContent = '＋');
 
-        if (!isOpen) {
-          answer.classList.add('is-open');
-          icon.textContent = '－';
-        }
+          if (!isOpen) {
+            answer.classList.add('is-open');
+            icon.textContent = '－';
+          }
+        });
       });
-    });
 
-    // Scroll Reveal Observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
+      // Scroll Reveal Observer with Fallback and Transition resilience
+      const setupScrollReveal = () => {
+        const elements = document.querySelectorAll('.reveal-on-scroll');
+        if (elements.length === 0) return;
 
-    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.01,
+          rootMargin: '0px 0px -20px 0px'
+        });
+
+        const checkVisibility = () => {
+          elements.forEach(el => {
+            if (el.classList.contains('is-visible')) return;
+            const rect = el.getBoundingClientRect();
+            // Reveal if the element top is visible or already scrolled past in the viewport
+            if (rect.top < window.innerHeight) {
+              el.classList.add('is-visible');
+              observer.unobserve(el);
+            }
+          });
+        };
+
+        // Register elements with observer
+        elements.forEach(el => {
+          if (!el.classList.contains('is-visible')) {
+            observer.observe(el);
+          }
+        });
+
+        // Run checks to ensure visibility is updated during Astro transitions & scroll restoration
+        checkVisibility();
+        setTimeout(checkVisibility, 50);
+        setTimeout(checkVisibility, 150);
+        setTimeout(checkVisibility, 300);
+        setTimeout(checkVisibility, 600);
+      };
+
+      setupScrollReveal();
+    }
   </script>
 
   <!-- Lead Form / Callback Request CTA (Espresso-dark band with White Card) -->

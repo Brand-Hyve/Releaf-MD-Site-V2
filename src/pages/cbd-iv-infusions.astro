@@ -346,24 +346,26 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <script data-astro-rerun>
-    // FAQ Accordion Toggle with Smooth Transitions
-    const toggles = document.querySelectorAll('.faq-toggle');
-    toggles.forEach(toggle => {
-      toggle.addEventListener('click', () => {
-        const id = toggle.getAttribute('data-faq');
-        const answer = document.getElementById(id);
-        const icon = toggle.querySelector('.faq-icon');
-        const isOpen = answer.classList.contains('is-open');
+    {
+      // FAQ Accordion Toggle with Smooth Transitions
+      const toggles = document.querySelectorAll('.faq-toggle');
+      toggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const id = toggle.getAttribute('data-faq');
+          const answer = document.getElementById(id);
+          const icon = toggle.querySelector('.faq-icon');
+          const isOpen = answer.classList.contains('is-open');
 
-        // Close all answers
-        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('is-open'));
-        document.querySelectorAll('.faq-icon').forEach(i => i.textContent = '＋');
+          // Close all answers
+          document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('is-open'));
+          document.querySelectorAll('.faq-icon').forEach(i => i.textContent = '＋');
 
-        if (!isOpen) {
-          answer.classList.add('is-open');
-          icon.textContent = '－';
-        }
+          if (!isOpen) {
+            answer.classList.add('is-open');
+            icon.textContent = '－';
+          }
+        });
       });
-    });
+    }
   </script>
 </Layout>
