@@ -14,6 +14,30 @@ const { title, description } = Astro.props;
 <!doctype html>
 <html lang="en" class="scroll-smooth">
 	<head>
+		<script is:inline>
+			/* Consent Mode v2 — must run before ANY Google tag. Every storage type
+			   defaults to denied, so the Google tags may load but set no
+			   analytics or advertising cookies until the visitor accepts. The
+			   banner below flips this with a 'consent' 'update'.
+
+			   This matters more than usual here: a visit to a medical cannabis
+			   clinic is health-adjacent information, and before this the site sent
+			   it to Google on first paint with no way to decline. */
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			var storedConsent = null;
+			try { storedConsent = localStorage.getItem('cookieConsent'); }
+			catch (e) { /* storage blocked (private mode) — treat as no consent */ }
+			var consentValue = storedConsent === 'true' ? 'granted' : 'denied';
+			gtag('consent', 'default', {
+				ad_storage: consentValue,
+				ad_user_data: consentValue,
+				ad_personalization: consentValue,
+				analytics_storage: consentValue,
+				functionality_storage: 'granted',
+				security_storage: 'granted'
+			});
+		</script>
 		<!-- Google Tag Manager -->
 		<script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -25,18 +49,14 @@ const { title, description } = Astro.props;
 		<ClientRouter />
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-X49DQ1K2LX"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
+		<script is:inline>
+			/* dataLayer and gtag() are already defined by the Consent Mode block
+			   above. Redefining them here would throw away the consent defaults. */
 			gtag('js', new Date());
 			gtag('config', 'G-X49DQ1K2LX');
 		</script>
 	</head>
 	<body class="flex flex-col min-h-screen bg-brand-mint text-slate-800 antialiased selection:bg-brand-primary selection:text-white font-sans relative">
-		<!-- Google Tag Manager (noscript) -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MG3NCMS8"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-		<!-- End Google Tag Manager (noscript) -->
 		<!-- Scroll Progress Bar -->
 		<div class="scroll-progress"></div>
 		<!-- Ambient Background Blobs -->
@@ -253,5 +273,58 @@ const { title, description } = Astro.props;
 				Call 813-651-3492
 			</span>
 		</a>
+		<!-- Cookie consent -->
+		<div
+			id="cookie-banner"
+			hidden
+			class="fixed bottom-0 inset-x-0 z-50 bg-brand-dark text-white px-4 py-4 sm:px-6 border-t border-brand-primary/30"
+			role="region"
+			aria-label="Cookie consent"
+		>
+			<div class="max-w-5xl mx-auto flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+				<p class="text-sm flex-1">
+					We use analytics cookies to understand how this site is used. Nothing is
+					stored until you choose. See our <a href="/privacy" class="underline hover:text-brand-accent">privacy policy</a>.
+				</p>
+				<div class="flex gap-3 shrink-0">
+					<button id="cookie-decline" type="button" class="px-4 py-2 text-sm rounded-md border border-white/40 hover:bg-white/10 transition-colors">
+						Decline
+					</button>
+					<button id="cookie-accept" type="button" class="px-4 py-2 text-sm rounded-md bg-brand-primary hover:bg-brand-accent transition-colors">
+						Accept
+					</button>
+				</div>
+			</div>
+		</div>
+		<script is:inline>
+			(function () {
+				var banner = document.getElementById('cookie-banner');
+				var accept = document.getElementById('cookie-accept');
+				var decline = document.getElementById('cookie-decline');
+				if (!banner || !accept) return;
+
+				var stored = null;
+				try { stored = localStorage.getItem('cookieConsent'); } catch (e) { stored = 'false'; }
+				/* Shown only while NO choice exists, so a decline is remembered
+				   rather than re-asked on every page. */
+				if (stored !== 'true' && stored !== 'false') banner.hidden = false;
+
+				function record(allowed) {
+					try { localStorage.setItem('cookieConsent', String(allowed)); } catch (e) {}
+					var value = allowed ? 'granted' : 'denied';
+					if (typeof window.gtag === 'function') {
+						window.gtag('consent', 'update', {
+							ad_storage: value,
+							ad_user_data: value,
+							ad_personalization: value,
+							analytics_storage: value
+						});
+					}
+					banner.hidden = true;
+				}
+				accept.addEventListener('click', function () { record(true); });
+				if (decline) decline.addEventListener('click', function () { record(false); });
+			})();
+		</script>
 	</body>
 </html>
