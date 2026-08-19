@@ -15,46 +15,48 @@ const { title, description } = Astro.props;
 <html lang="en" class="scroll-smooth">
 	<head>
 		<script is:inline>
-			/* Consent Mode v2 — must run before ANY Google tag. Every storage type
-			   defaults to denied, so the Google tags may load but set no
-			   analytics or advertising cookies until the visitor accepts. The
-			   banner below flips this with a 'consent' 'update'.
+			/* Analytics is LOADER-GATED: no Google tag is requested at all until the
+			   visitor accepts. Nothing below runs on its own.
 
-			   This matters more than usual here: a visit to a medical cannabis
-			   clinic is health-adjacent information, and before this the site sent
-			   it to Google on first paint with no way to decline. */
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			var storedConsent = null;
-			try { storedConsent = localStorage.getItem('cookieConsent'); }
-			catch (e) { /* storage blocked (private mode) — treat as no consent */ }
-			var consentValue = storedConsent === 'true' ? 'granted' : 'denied';
-			gtag('consent', 'default', {
-				ad_storage: consentValue,
-				ad_user_data: consentValue,
-				ad_personalization: consentValue,
-				analytics_storage: consentValue,
-				functionality_storage: 'granted',
-				security_storage: 'granted'
-			});
+			   This is stricter than Consent Mode v2, which lets the tags load and
+			   then instructs them not to store anything. Under Consent Mode a
+			   request still reaches Google carrying the visitor's IP, referrer and
+			   page URL. For a medical cannabis clinic that request is itself the
+			   sensitive fact, so the tag is never fetched without consent. */
+			window.__loadAnalytics = function () {
+				if (window.__analyticsLoaded) return;
+				window.__analyticsLoaded = true;
+
+				window.dataLayer = window.dataLayer || [];
+				window.gtag = function () { window.dataLayer.push(arguments); };
+				window.gtag('js', new Date());
+				window.gtag('config', 'G-X49DQ1K2LX');
+
+				var ga = document.createElement('script');
+				ga.async = true;
+				ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-X49DQ1K2LX';
+				document.head.appendChild(ga);
+
+				(function (w, d, s, l, i) {
+					w[l] = w[l] || [];
+					w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+					var f = d.getElementsByTagName(s)[0],
+						j = d.createElement(s),
+						dl = l != 'dataLayer' ? '&l=' + l : '';
+					j.async = true;
+					j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+					f.parentNode.insertBefore(j, f);
+				})(window, document, 'script', 'dataLayer', 'GTM-MG3NCMS8');
+			};
+
+			/* Only a stored acceptance starts it. Anything else - no choice yet, a
+			   decline, or storage blocked in private mode - loads nothing. */
+			try {
+				if (localStorage.getItem('cookieConsent') === 'true') window.__loadAnalytics();
+			} catch (e) {}
 		</script>
-		<!-- Google Tag Manager -->
-		<script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-MG3NCMS8');</script>
-		<!-- End Google Tag Manager -->
 		<SEO title={title} description={description} />
 		<ClientRouter />
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-X49DQ1K2LX"></script>
-		<script is:inline>
-			/* dataLayer and gtag() are already defined by the Consent Mode block
-			   above. Redefining them here would throw away the consent defaults. */
-			gtag('js', new Date());
-			gtag('config', 'G-X49DQ1K2LX');
-		</script>
 	</head>
 	<body class="flex flex-col min-h-screen bg-brand-mint text-slate-800 antialiased selection:bg-brand-primary selection:text-white font-sans relative">
 		<!-- Scroll Progress Bar -->
@@ -311,14 +313,10 @@ const { title, description } = Astro.props;
 
 				function record(allowed) {
 					try { localStorage.setItem('cookieConsent', String(allowed)); } catch (e) {}
-					var value = allowed ? 'granted' : 'denied';
-					if (typeof window.gtag === 'function') {
-						window.gtag('consent', 'update', {
-							ad_storage: value,
-							ad_user_data: value,
-							ad_personalization: value,
-							analytics_storage: value
-						});
+					/* Accept is what actually fetches the tags. Decline loads nothing,
+					   and since nothing was loaded there is no consent state to revoke. */
+					if (allowed && typeof window.__loadAnalytics === 'function') {
+						window.__loadAnalytics();
 					}
 					banner.hidden = true;
 				}
